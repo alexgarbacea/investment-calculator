@@ -1,0 +1,206 @@
+$background-color: rgb(240, 242, 245)
+
+$background-contrast: rgb(255, 255, 255)
+
+$font-color: rgb(17, 17, 17)
+
+$font-contrast: rgb(24, 118, 242)
+
+$font-contrast2: rgb(205, 108, 0)
+
+$main-shadow: rgba(0, 0, 0, 0.2)
+
+body
+    color: $font-color
+    background-color: $background-color
+
+.App
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 1em
+    margin: 2em
+
+.bubble
+    width: clamp(60vw, 100%, 1000px)
+    flex-shrink: 0
+    background-color: $background-contrast
+    padding: .1em
+    border-radius: .3rem
+    box-shadow: 0 1px 2px $main-shadow
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    &.title
+        text-align: center
+        font-size: x-large
+
+.data-form
+    display: flex
+    flex-direction: column
+    padding-block: 2em
+    font-size: large
+    justify-content: center
+    align-items: flex-start
+    width: 80%
+
+.input-wrapper
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    width: 100%
+    border-bottom: 1px solid rgba(0, 0, 0, .5)
+    padding-bottom: 2em
+    padding-top: 1.5em
+    &:first-child
+        padding-top: 0
+    &:last-child
+        border-bottom: 0
+        padding-bottom: 0
+    &>.multi-input
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        gap: 9px
+    &>label
+        font-weight: 700
+        font-size: 1.2em
+        margin-bottom: .5em
+
+.data-input
+    font-family: 'PT Sans Narrow', sans-serif
+    font-size: .9em
+    border: 0
+    padding: 10px
+    border-radius: 10px
+    box-shadow: 0 0 10px 4px $main-shadow
+
+.form-buttons
+    padding-top: 1em
+    width: 100%
+    display: flex
+    justify-content: flex-end
+
+.action-button
+    border: none
+    background-color: $font-contrast
+    color: #fff
+    font-family: 'PT Sans Narrow', sans-serif
+    font-size: 1.2em
+    border-radius: 10px
+    padding-inline: 15px
+    padding-block: 5px
+    cursor: pointer
+    transition: .2s ease-in-out
+    &:hover
+        transform: translateY(-2px)
+    &.unselected
+        background-color: rgba($font-contrast, 0.6)
+    &.mar
+        margin: 1em
+
+.button-group
+    display: flex
+    align-items: center
+    padding-bottom: 1em
+    gap: .5em
+
+.result-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    width: 80%
+    padding: 1em
+
+.side-box-wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    width: 100%
+    gap: 10px
+    padding-bottom: 2em
+    border-bottom: 1px solid rgba(0, 0, 0, .5)
+    &:last-child
+        padding-bottom: 0
+        border-bottom: 0
+    &.simple
+        display: block
+
+.side-box
+    border-top: 1px solid rgba(0, 0, 0, .5)
+    flex: calc( 50% - 10px )
+    padding-top: .5em
+    &>.title
+        font-size: 1em
+    &>.value
+        user-select: all
+        font-weight: 700
+        font-size: 40px
+        margin-bottom: .3em
+        &:last-child
+            margin-bottom: 0
+        &.blue
+            color: $font-contrast
+        &.orange
+            color: $font-contrast2
+    &.small
+        max-width: calc( 50% - 10px )
+        display: inline-block
+        flex: none
+        border-top: 0
+        padding-top: 0
+        margin-right: 10px
+        &.values
+            margin-right: 0
+            font-weight: 700
+
+.overflower
+    width: 100%
+    max-width: 100%
+    max-height: 400px
+    overflow: auto
+
+.result-table
+    width: 100%
+    border: 1px solid #ccc
+    border-collapse: collapse
+    box-sizing: border-box
+    text-indent: initial
+    border-spacing: 2px
+    text-align: left
+    line-height: 1.5
+    &>tbody>tr>td, &>thead>tr>th
+        border: 1px solid #ccc
+    &>tbody>tr:nth-child(odd)
+        background-color: #f2f2f2
+    &>tbody>tr.year
+        background-color: #ffc
+
+// Loader
+.loader
+  width: 16px
+  height: 16px
+  border-radius: 50%
+  background-color: #fff
+  box-shadow: 32px 0 #fff, -32px 0 #fff
+  position: relative
+  animation: flash 0.5s ease-out infinite alternate
+
+
+@keyframes flash 
+  0% 
+    background-color: #2a19ec22
+    box-shadow: 32px 0 #0004ff22, -32px 0 #1876f2
+  
+  50% 
+    background-color: #1876f2
+    box-shadow: 32px 0 #FFF2, -32px 0 #FFF2
+  
+  100% 
+    background-color: #FFF2
+    box-shadow: 32px 0 #1876f2, -32px 0 #FFF2
+  
+
+     

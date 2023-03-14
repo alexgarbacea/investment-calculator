@@ -1,0 +1,228 @@
+body {
+  color: rgb(17, 17, 17);
+  background-color: rgb(240, 242, 245);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin: 2em;
+}
+
+.bubble {
+  width: clamp(60vw, 100%, 1000px);
+  flex-shrink: 0;
+  background-color: rgb(255, 255, 255);
+  padding: 0.1em;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.bubble.title {
+  text-align: center;
+  font-size: x-large;
+}
+
+.data-form {
+  display: flex;
+  flex-direction: column;
+  padding-block: 2em;
+  font-size: large;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 2em;
+  padding-top: 1.5em;
+}
+.input-wrapper:first-child {
+  padding-top: 0;
+}
+.input-wrapper:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.input-wrapper > .multi-input {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.input-wrapper > label {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.data-input {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 0.9em;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-buttons {
+  padding-top: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-button {
+  border: none;
+  background-color: rgb(24, 118, 242);
+  color: #fff;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 1.2em;
+  border-radius: 10px;
+  padding-inline: 15px;
+  padding-block: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.action-button:hover {
+  transform: translateY(-2px);
+}
+.action-button.unselected {
+  background-color: rgba(24, 118, 242, 0.6);
+}
+.action-button.mar {
+  margin: 1em;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1em;
+  gap: 0.5em;
+}
+
+.result-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  padding: 1em;
+}
+
+.side-box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 10px;
+  padding-bottom: 2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.side-box-wrapper:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.side-box-wrapper.simple {
+  display: block;
+}
+
+.side-box {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  flex: calc(50% - 10px);
+  padding-top: 0.5em;
+}
+.side-box > .title {
+  font-size: 1em;
+}
+.side-box > .value {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 0.3em;
+}
+.side-box > .value:last-child {
+  margin-bottom: 0;
+}
+.side-box > .value.blue {
+  color: rgb(24, 118, 242);
+}
+.side-box > .value.orange {
+  color: rgb(205, 108, 0);
+}
+.side-box.small {
+  max-width: calc(50% - 10px);
+  display: inline-block;
+  flex: none;
+  border-top: 0;
+  padding-top: 0;
+  margin-right: 10px;
+}
+.side-box.small.values {
+  margin-right: 0;
+  font-weight: 700;
+}
+
+.overflower {
+  width: 100%;
+  max-width: 100%;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.result-table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  text-align: left;
+  line-height: 1.5;
+}
+.result-table > tbody > tr > td, .result-table > thead > tr > th {
+  border: 1px solid #ccc;
+}
+.result-table > tbody > tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+.result-table > tbody > tr.year {
+  background-color: #ffc;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 32px 0 #fff, -32px 0 #fff;
+  position: relative;
+  animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(42, 25, 236, 0.1333333333);
+    box-shadow: 32px 0 rgba(0, 4, 255, 0.1333333333), -32px 0 #1876f2;
+  }
+  50% {
+    background-color: #1876f2;
+    box-shadow: 32px 0 rgba(255, 255, 255, 0.1333333333), -32px 0 rgba(255, 255, 255, 0.1333333333);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.1333333333);
+    box-shadow: 32px 0 #1876f2, -32px 0 rgba(255, 255, 255, 0.1333333333);
+  }
+}/*# sourceMappingURL=App.css.map */
